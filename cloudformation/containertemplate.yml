@@ -36,6 +36,9 @@ Parameters:
   alblistener:
     Type: String
     Description: ALB listener arn
+  image:
+    Type: String
+    Description: Docker image repository
 
 Resources:
 
@@ -109,7 +112,7 @@ Resources:
       ContainerDefinitions:
       -
         Name: !Ref ContainerName
-        Image: willejs/go-hello-world
+        Image: !Ref image
         Cpu: "50"
         PortMappings:
           -
