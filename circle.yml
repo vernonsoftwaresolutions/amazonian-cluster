@@ -19,7 +19,7 @@ test:
     - sh ./cloudformation/testcloudformation.sh ${ECS_STACK_NAME} ${STACK_NAME}:
        timeout: 1800
 
-   post: 
+  post: 
     - sh ./cloudformation/cleanup.sh ${ECS_STACK_NAME} ${STACK_NAME}
 
 deployment: 
