@@ -36,9 +36,6 @@ Parameters:
       c3.2xlarge, c3.4xlarge, c3.8xlarge, r3.large, r3.xlarge, r3.2xlarge, r3.4xlarge,
       r3.8xlarge, i2.xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge]
     ConstraintDescription: Please choose a valid instance type.
-  Environment: 
-    Description: Environment name for clsuter
-    Default: dev
   #DockerRepository:
    # Description: Repository containing docker images
     #Type: String
@@ -263,19 +260,19 @@ Outputs:
     Description: ECS ALB DNS URL
     Value: !Join ['', [!GetAtt [ECSLB, DNSName]]]
     Export:  
-      Name: !Sub ecslbdnsname-${Environment}
+      Name: !Sub ecslbdnsname-${AWS::StackName}
   ecslbhostedzoneid:
     Description: Your ALB DNS Hosted Zone Id
     Value: !Join ['', [!GetAtt [ECSLB, CanonicalHostedZoneID]]]
     Export:  
-      Name: !Sub ecslbhostedzoneid-${Environment}
+      Name: !Sub ecslbhostedzoneid-${AWS::StackName}
   ecslbarn:
     Description: Load balancer arn
     Value: !Ref 'ECSLB'
     Export:  
-      Name: !Sub ecslbarn-${Environment}
+      Name: !Sub ecslbarn-${AWS::StackName}
   alblistener:
     Description: Applicaiton Load Balancer listener
     Value: !Ref ALBListener
     Export:  
-      Name: !Sub alblistener-${Environment}
+      Name: !Sub alblistener-${AWS::StackName}

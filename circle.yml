@@ -4,8 +4,8 @@ machine:
     ECS_STACK_NAME: amazonian-ecs
     STACK_NAME: amazonian
     IMAGE: willejs/go-hello-world
-  services: 
-    - docker
+  # services: 
+  #   - docker
 
 dependencies: 
   override: 
