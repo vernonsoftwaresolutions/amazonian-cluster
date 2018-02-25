@@ -17,7 +17,7 @@ test:
     - aws cloudformation validate-template --template-body file://cloudformation/ecs.yml
     - aws cloudformation validate-template --template-body file://cloudformation/containertemplate.yml
     - aws cloudformation validate-template --template-body file://cloudformation/deploymentbucket.yml
-    - sh ./cloudformation/testcloudformation.sh ${ECS_STACK_NAME} ${STACK_NAME}:
+    - sh ./cloudformation/testcloudformation.sh ${ECS_STACK_NAME} ${STACK_NAME} ${IMAGE}:
        timeout: 1800
 
 deployment: 
