@@ -27,5 +27,5 @@ deployment:
       - sh ./cloudformation/createbucket.sh ecs.bucket.template amazonianinfra
       - aws s3 cp cloudformation/ecs.yml s3://ecs.bucket.template/ecs/ecs.yml
       - aws s3 cp cloudformation/containertemplate.yml s3://ecs.bucket.template/ecstenant/containertemplate.yml
-      - sh ./cloudformation/cleanup.sh ${ECS_STACK_NAME} ${STACK_NAME} ${IMAGE}
+      # - sh ./cloudformation/cleanup.sh ${ECS_STACK_NAME} ${STACK_NAME} ${IMAGE}
 
