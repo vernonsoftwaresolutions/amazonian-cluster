@@ -19,8 +19,8 @@ test:
     - aws cloudformation validate-template --template-body file://cloudformation/deploymentbucket.yml
     - sh ./cloudformation/testcloudformation.sh ${ECS_STACK_NAME} ${STACK_NAME}:
        timeout: 1800
-    - sh ./cloudformation/cleanup.sh ${ECS_STACK_NAME} ${STACK_NAME} ${IMAGE}
-    
+    # - sh ./cloudformation/cleanup.sh ${ECS_STACK_NAME} ${STACK_NAME} ${IMAGE}
+
 deployment: 
   development: 
     branch: master
