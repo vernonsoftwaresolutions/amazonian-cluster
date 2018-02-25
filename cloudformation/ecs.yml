@@ -132,7 +132,7 @@ Resources:
   ECSLB:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
-      Name: ECSLB
+      Name: !Sub ECSLB${AWS::StackName}
       Scheme: internet-facing
       LoadBalancerAttributes:
       - Key: idle_timeout.timeout_seconds
@@ -173,7 +173,7 @@ Resources:
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 5
       HealthyThresholdCount: 2
-      Name: "DEFAULTTRGGRP"
+      Name: !Sub DEFAULTTRGGRP${AWS::StackName}
       Port: 80
       Matcher:
         HttpCode: '200'
@@ -236,7 +236,7 @@ Resources:
           Action: ['sts:AssumeRole']
       Path: /
       Policies:
-      - PolicyName: ecs-service
+      - PolicyName: !Sub ecs-service${AWS::StackName}
         PolicyDocument:
           Statement:
           - Effect: Allow
