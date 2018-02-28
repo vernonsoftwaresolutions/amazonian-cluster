@@ -40,11 +40,10 @@ Parameters:
    # Description: Repository containing docker images
     #Type: String
 Conditions:
-  HasKeyName:
-    Fn::Not:
-    - Fn::Equals:
-      - ''
-      - Ref: KeyName
+  NotUseKeyName:
+    Fn::Equals:
+    - Ref: KeyName
+    - ''
 Mappings:
   AWSRegionToAMI:
     us-east-1:
@@ -224,9 +223,9 @@ Resources:
       IamInstanceProfile: !Ref 'EC2InstanceProfile'
       KeyName:
         Fn::If:
-        - HasKeyName
-        - Ref: KeyName
-        - Ref: AWS::NoValue
+        - NotUseKeyName
+        - !Ref AWS::NoValue
+        - !Ref KeyName
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash -xe
