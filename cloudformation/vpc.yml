@@ -329,49 +329,49 @@ Outputs:
     Description: VPC Id
     Value: !Ref VPC
     Export:
-      Name: !Join [ "", ["VPC", Ref: Tenant ] ]
+      Name: !Join [ "-", ["VPC", Ref: Tenant ] ]
   DBSubnet1:
     Description: DBSubnet1 Id
     Value: !Ref DBSubnet1
     Export:
-      Name: !Join [ "", ["DBSubnet1", Ref: Tenant ] ]
+      Name: !Join [ "-", ["DBSubnet1", Ref: Tenant ] ]
   DBSubnet1:
     Description: DBSubnet1 Id
     Value: !Ref DBSubnet1
     Export:
-      Name: !Join [ "", ["DBSubnet1", Ref: Tenant ] ]
+      Name: !Join [ "-", ["DBSubnet1", Ref: Tenant ] ]
   DBSubnet2:
     Description: DBSubnet2
     Value: !Ref DBSubnet2
     Export:
-      Name: !Join [ "", ["DBSubnet2", Ref: Tenant ] ]
+      Name: !Join [ "-", ["DBSubnet2", Ref: Tenant ] ]
   APPSubnet1:
     Description: APPSubnet1 Id
     Value: !Ref APPSubnet1
     Export:
-      Name: !Join [ "", ["APPSubnet1", Ref: Tenant ] ]
+      Name: !Join [ "-", ["APPSubnet1", Ref: Tenant ] ]
   APPSubnet2:
     Description: APPSubnet2 Id
     Value: !Ref APPSubnet2
     Export:
-      Name: !Join [ "", ["APPSubnet2", Ref: Tenant ] ]
+      Name: !Join [ "-", ["APPSubnet2", Ref: Tenant ] ]
   APPSubnet3:
     Description: APPSubnet3 Id
     Value: !Ref APPSubnet3
     Export:
-      Name: !Join [ "", ["APPSubnet3", Ref: Tenant ] ]
+      Name: !Join [ "-", ["APPSubnet3", Ref: Tenant ] ]
   WSSubnet1:
     Description: WSSubnet1 Id
     Value: !Ref WSSubnet1
     Export:
-      Name: !Join [ "", ["WSSubnet1", Ref: Tenant ] ]
+      Name: !Join [ "-", ["WSSubnet1", Ref: Tenant ] ]
   WSSubnet2:
     Description: WSSubnet2 Id
     Value: !Ref WSSubnet2
     Export:
-      Name: !Join [ "", ["WSSubnet2", Ref: Tenant ] ]
+      Name: !Join [ "-", ["WSSubnet2", Ref: Tenant ] ]
   WSSubnet3:
     Description: WSSubnet3 Id
     Value: !Ref WSSubnet3
     Export:
-      Name: !Join [ "", ["WSSubnet3", Ref: Tenant ] ]
+      Name: !Join [ "-", ["WSSubnet3", Ref: Tenant ] ]
