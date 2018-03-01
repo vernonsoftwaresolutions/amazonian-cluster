@@ -10,7 +10,7 @@ Parameters:
     Type: String
     Description: Domain name for platform
   KeyName:
-    Type: AWS::EC2::KeyPair::KeyName
+    Type: String
     Description: Name of an existing EC2 KeyPair to enable SSH access to the ECS instances.
   VpcId:
     Type: AWS::EC2::VPC::Id
