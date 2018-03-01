@@ -346,6 +346,16 @@ Resources:
         Ref: InternetGateway
 
 Outputs:
+  VPC:
+    Description: VPC Id
+    Value: !Ref VPC
+    Export:
+      Name: !Join [ "", ["VPC", Ref: Tenant ] ]
+  DBSubnet1:
+    Description: DBSubnet1 Id
+    Value: !Ref DBSubnet1
+    Export:
+      Name: !Join [ "", ["DBSubnet1", Ref: Tenant ] ]
   DBSubnet1:
     Description: DBSubnet1 Id
     Value: !Ref DBSubnet1
