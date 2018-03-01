@@ -8,7 +8,7 @@ image=$3
 vpcname=$4
 
 
-aws cloudformation package --template-file vpc.yml --output-template-file vpc-output.yml --s3-bucket moodle-deployables
+aws cloudformation package --template-file cloudformation/vpc.yml --output-template-file vpc-output.yml --s3-bucket moodle-deployables
 aws cloudformation deploy --template-file vpc-output.yml --capabilities CAPABILITY_IAM --stack-name "${vpcname}" \
 --parameter-overrides VPCName="${vpcname}" Tenant=amazonian
 

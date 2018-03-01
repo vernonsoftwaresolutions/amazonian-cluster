@@ -15,6 +15,7 @@ dependencies:
 
 test: 
   pre: 
+    - aws cloudformation validate-template --template-body file://cloudformation/vpc.yml
     - aws cloudformation validate-template --template-body file://cloudformation/ecs.yml
     - aws cloudformation validate-template --template-body file://cloudformation/containertemplate.yml
     - aws cloudformation validate-template --template-body file://cloudformation/deploymentbucket.yml
