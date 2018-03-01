@@ -15,7 +15,10 @@ Parameters:
   VpcId:
     Type: AWS::EC2::VPC::Id
     Description: Select a VPC that allows instances access to the Internet.
-  SubnetId:
+  WSSubnetId:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: Select at two subnets in your selected VPC.
+  ClusterSubnetId:
     Type: List<AWS::EC2::Subnet::Id>
     Description: Select at two subnets in your selected VPC.
   DesiredCapacity:
@@ -141,7 +144,7 @@ Resources:
       LoadBalancerAttributes:
       - Key: idle_timeout.timeout_seconds
         Value: '30'
-      Subnets: !Ref 'SubnetId'
+      Subnets: !Ref 'WSSubnetId'
       SecurityGroups: 
       - !Ref 'HttpSecurityGroup'
       - !Ref 'WebSecurityGroup'
@@ -191,7 +194,7 @@ Resources:
   ECSAutoScalingGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
-      VPCZoneIdentifier: !Ref 'SubnetId'
+      VPCZoneIdentifier: !Ref 'ClusterSubnetId'
       LaunchConfigurationName: !Ref 'ContainerInstances'
       MinSize: '1'
       MaxSize: !Ref 'MaxSize'
