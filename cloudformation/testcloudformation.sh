@@ -23,7 +23,7 @@ WSSubnet3=`aws cloudformation describe-stacks --stack-name "${vpcname}" --query 
 VPC=`aws cloudformation describe-stacks --stack-name "${vpcname}" --query "Stacks[0].[Outputs[? starts_with(OutputKey, 'VPC')]][0][*].{OutputValue:OutputValue}" --output text`
 
 aws cloudformation package --template-file cloudformation/ecs.yml --output-template-file ecs-output.yml --s3-bucket circleci.deployables
-aws cloudformation deploy --template-file ecs-output.yml --capabilities CAPABILITY_IAM --stack-name "${ecstemplate}" --parameter-overrides KeyName="" VpcId=${VPC} WSSubnetId="${WSSubnet1},${WSSubnet2},${WSSubnet3}" ClusterSubnetId="${AppSubnet1},${AppSubnet2},${AppSubnet3}" InstanceType=t2.medium DomainName=vssdevelopment.com
+aws cloudformation deploy --template-file ecs-output.yml --capabilities CAPABILITY_IAM --stack-name "${ecstemplate}" --parameter-overrides KeyName="" VpcId=${VPC} WSSubnetId="${WSSubnet1},${WSSubnet2},${WSSubnet3}" ClusterSubnetId="${WSSubnet1},${WSSubnet2},${WSSubnet3}" InstanceType=t2.medium DomainName=vssdevelopment.com
 
 #Get output values, this is a soemwhat naive approach since it is a lot of api calls
 ecscluster=`aws cloudformation describe-stacks --stack-name "${ecstemplate}" --query "Stacks[0].[Outputs[? starts_with(OutputKey, 'ecscluster')]][0][*].{OutputValue:OutputValue}" --output text`
