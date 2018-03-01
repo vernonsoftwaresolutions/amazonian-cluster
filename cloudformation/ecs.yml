@@ -50,13 +50,13 @@ Conditions:
 Mappings:
   AWSRegionToAMI:
     us-east-1:
-      AMIID: ami-eca289fb
+      AMIID: ami-a7a242da
     us-east-2:
       AMIID: ami-446f3521
     us-west-1:
       AMIID: ami-9fadf8ff
     us-west-2:
-      AMIID: ami-7abc111a
+      AMIID: ami-92e06fea
     eu-west-1:
       AMIID: ami-a1491ad2
     eu-central-1:
