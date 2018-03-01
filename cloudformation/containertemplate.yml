@@ -205,3 +205,9 @@ Resources:
   #  Properties:
   #    LogGroupName: !Join ['-', [ECSLogGroup, !Ref 'AWS::StackName']]
   #    RetentionInDays: 14
+Outputs:
+  URL:
+    Description: Service HTTPS URL
+    Value: !Sub "https://${ServiceName}.${HostedZoneName}"
+    Export:
+      Name: !Sub "${ServiceName}-URL"
