@@ -224,8 +224,8 @@ Resources:
       KeyName:
         Fn::If:
         - NotUseKeyName
-        - !Ref KeyName
         - !Ref AWS::NoValue
+        - !Ref KeyName
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash -xe
