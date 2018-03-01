@@ -10,7 +10,7 @@ vpcname=$4
 
 aws cloudformation package --template-file cloudformation/vpc.yml --output-template-file vpc-output.yml --s3-bucket moodle-deployables
 aws cloudformation deploy --template-file vpc-output.yml --capabilities CAPABILITY_IAM --stack-name "${vpcname}" \
---parameter-overrides VPCName="${vpcname}" Tenant=amazonian
+--parameter-overrides Tenant=amazonian
 
 AppSubnet1=`aws cloudformation describe-stacks --stack-name "${vpcname}" --query "Stacks[0].[Outputs[? starts_with(OutputKey, 'APPSubnet1')]][0][*].{OutputValue:OutputValue}" --output text`
 AppSubnet2=`aws cloudformation describe-stacks --stack-name "${vpcname}" --query "Stacks[0].[Outputs[? starts_with(OutputKey, 'APPSubnet2')]][0][*].{OutputValue:OutputValue}" --output text`

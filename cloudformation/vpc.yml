@@ -17,10 +17,6 @@ Mappings:
       AZ3: us-west-2c
 
 Parameters:
-  #VPC Name
-  VPCName:
-    Type: String
-    Description: Name of vpc to add ElasticCache to
   Tenant:
     Type: String
     Default: DEV
@@ -136,7 +132,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: 
-        Ref: VPCName
+        Ref: VPC
       CidrBlock:
         Ref: WSSN1Cidr
       AvailabilityZone:
@@ -153,7 +149,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: 
-        Ref: VPCName
+        Ref: VPC
       CidrBlock:
         Ref: WSSN2Cidr
       AvailabilityZone:
@@ -170,7 +166,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: 
-        Ref: VPCName
+        Ref: VPC
       CidrBlock:
         Ref: WSSN3Cidr
       AvailabilityZone:
@@ -190,7 +186,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: 
-        Ref: VPCName
+        Ref: VPC
       CidrBlock:
         Ref: APPSN1Cidr
       AvailabilityZone:
@@ -206,7 +202,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: 
-        Ref: VPCName
+        Ref: VPC
       CidrBlock:
         Ref: APPSN2Cidr
       AvailabilityZone:
@@ -222,7 +218,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: 
-        Ref: VPCName
+        Ref: VPC
       CidrBlock:
         Ref: APPSN3Cidr
       AvailabilityZone:
@@ -241,7 +237,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: 
-        Ref: VPCName
+        Ref: VPC
       CidrBlock:
         Ref: DBSN1Cidr
       AvailabilityZone:
@@ -257,7 +253,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: 
-        Ref: VPCName
+        Ref: VPC
       CidrBlock:
         Ref: DBSN2Cidr
       AvailabilityZone:
