@@ -76,77 +76,58 @@ Resources:
     Properties:
       SubnetId:
         Ref: WSSubnet1
-      RouteTableId:
-        !ImportValue
-              Ref: PublicRouteTable
+      RouteTableId: Ref: PublicRouteTable
   WSSubnet2RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       SubnetId:
         Ref: WSSubnet2
-      RouteTableId:
-        !ImportValue
-              Ref: PublicRouteTable
+      RouteTableId: Ref: PublicRouteTable
   WSSubnet3RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       SubnetId:
         Ref: WSSubnet3
-      RouteTableId:
-        !ImportValue
-              Ref: PublicRouteTable
+      RouteTableId: Ref: PublicRouteTable
   # App routes
   APPSubnet1RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       SubnetId:
         Ref: APPSubnet1
-      RouteTableId:
-        !ImportValue
-              Ref: PrivateRouteTable
+      RouteTableId: Ref: PrivateRouteTable
   APPSubnet2RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       SubnetId:
         Ref: APPSubnet2
-      RouteTableId:
-        !ImportValue
-              Ref: PrivateRouteTable
+      RouteTableId: Ref: PrivateRouteTable
   APPSubnet3RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       SubnetId:
         Ref: APPSubnet3
-      RouteTableId:
-        !ImportValue
-              Ref: PrivateRouteTable
+      RouteTableId: Ref: PrivateRouteTable
   # DB routes
   DBSubnet1RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       SubnetId:
         Ref: DBSubnet1
-      RouteTableId:
-        !ImportValue
-              Ref: PrivateRouteTable
+      RouteTableId: Ref: PrivateRouteTable
   DBSubnet2RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       SubnetId:
         Ref: DBSubnet2
-      RouteTableId:
-        !ImportValue
-              Ref: PrivateRouteTable
-
+      RouteTableId: Ref: PrivateRouteTable
   ##
   # Web Tier Subnets
   ##
   WSSubnet1:
     Type: AWS::EC2::Subnet
     Properties:
-      VpcId:
-        !ImportValue
-          Ref: VPCName
+      VpcId: Ref: VPCName
       CidrBlock:
         Ref: WSSN1Cidr
       AvailabilityZone:
@@ -162,9 +143,7 @@ Resources:
   WSSubnet2:
     Type: AWS::EC2::Subnet
     Properties:
-      VpcId:
-        !ImportValue
-          Ref: VPCName
+      VpcId: Ref: VPCName
       CidrBlock:
         Ref: WSSN2Cidr
       AvailabilityZone:
@@ -180,9 +159,7 @@ Resources:
   WSSubnet3:
     Type: AWS::EC2::Subnet
     Properties:
-      VpcId:
-        !ImportValue
-          Ref: VPCName
+      VpcId: Ref: VPCName
       CidrBlock:
         Ref: WSSN3Cidr
       AvailabilityZone:
@@ -201,9 +178,7 @@ Resources:
   APPSubnet1:
     Type: AWS::EC2::Subnet
     Properties:
-      VpcId:
-        !ImportValue
-          Ref: VPCName
+      VpcId: Ref: VPCName
       CidrBlock:
         Ref: APPSN1Cidr
       AvailabilityZone:
@@ -218,9 +193,7 @@ Resources:
   APPSubnet2:
     Type: AWS::EC2::Subnet
     Properties:
-      VpcId:
-        !ImportValue
-          Ref: VPCName
+      VpcId: Ref: VPCName
       CidrBlock:
         Ref: APPSN2Cidr
       AvailabilityZone:
@@ -235,9 +208,7 @@ Resources:
   APPSubnet3:
     Type: AWS::EC2::Subnet
     Properties:
-      VpcId:
-        !ImportValue
-          Ref: VPCName
+      VpcId: Ref: VPCName
       CidrBlock:
         Ref: APPSN3Cidr
       AvailabilityZone:
@@ -255,9 +226,7 @@ Resources:
   DBSubnet1:
     Type: AWS::EC2::Subnet
     Properties:
-      VpcId:
-        !ImportValue
-          Ref: VPCName
+      VpcId: Ref: VPCName
       CidrBlock:
         Ref: DBSN1Cidr
       AvailabilityZone:
@@ -272,9 +241,7 @@ Resources:
   DBSubnet2:
     Type: AWS::EC2::Subnet
     Properties:
-      VpcId:
-        !ImportValue
-          Ref: VPCName
+      VpcId: Ref: VPCName
       CidrBlock:
         Ref: DBSN2Cidr
       AvailabilityZone:
