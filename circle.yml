@@ -4,7 +4,7 @@ machine:
     ECS_STACK_NAME: amazonian-ecs
     STACK_NAME: amazonian
     IMAGE: willejs/go-hello-world
-    VPC_NAME: amazonian-virtualprivatecloud
+    VPC_NAME: amazonian-vpcloud
   # services: 
   #   - docker
 
