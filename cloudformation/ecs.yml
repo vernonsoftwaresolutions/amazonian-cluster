@@ -180,7 +180,7 @@ Resources:
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 5
       HealthyThresholdCount: 2
-      Name: !Sub DEFAULTTRGGRP${AWS::StackName}
+      Name: !Sub TRG${AWS::StackName}
       Port: 80
       Matcher:
         HttpCode: '200'
