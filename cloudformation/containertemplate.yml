@@ -120,8 +120,8 @@ Resources:
         Memory: "500"
         Essential: "true"   
         LogConfiguration:
-          logDriver: awslogs
-          options:
+          LogDriver: awslogs
+          Options:
             awslogs-group: !Ref CloudwatchLogsGroup
             awslogs-region: !Ref 'AWS::Region'
 
