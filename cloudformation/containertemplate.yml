@@ -118,7 +118,12 @@ Resources:
           -
             ContainerPort: 8484 
         Memory: "500"
-        Essential: "true"    
+        Essential: "true"   
+        LogConfiguration:
+          logDriver: awslogs
+            options:
+              awslogs-group: !Ref CloudwatchLogsGroup
+              awslogs-region: !Ref 'AWS::Region'
 
   ECSServiceRole:
     Type: AWS::IAM::Role
@@ -200,11 +205,11 @@ Resources:
       ComparisonOperator: GreaterThanThreshold
       MetricName: HTTPCode_ELB_5XX_Count
 
-  #CloudwatchLogsGroup:
-  #  Type: AWS::Logs::LogGroup
-  #  Properties:
-  #    LogGroupName: !Join ['-', [ECSLogGroup, !Ref 'AWS::StackName']]
-  #    RetentionInDays: 14
+  CloudwatchLogsGroup:
+   Type: AWS::Logs::LogGroup
+   Properties:
+     LogGroupName: !Join ['-', [ECSLogGroup, !Ref 'AWS::StackName']]
+     RetentionInDays: 14
 Outputs:
   URL:
     Description: Service HTTPS URL
