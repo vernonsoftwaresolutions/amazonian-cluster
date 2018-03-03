@@ -1,10 +1,10 @@
 --- 
 machine: 
   environment:
-    ECS_STACK_NAME: amazonian-ecs
+    ECS_STACK_NAME: amazonian-containerservice
     STACK_NAME: amazoniancf
     IMAGE: willejs/go-hello-world
-    VPC_NAME: amazonian-virtual
+    VPC_NAME: amazonian-vpc
   # services: 
   #   - docker
 
