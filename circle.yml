@@ -1,10 +1,10 @@
 --- 
 machine: 
   environment:
-    ECS_STACK_NAME: amazonian-containerservice
+    ECS_STACK_NAME: amazonian-ecs
     STACK_NAME: amazoniancf
     IMAGE: larse514/gohelloworldservicecontainer:latest
-    VPC_NAME: amazonian-vpc
+    VPC_NAME: amazonian-cloud
     PORT_MAPPING: 8080
   # services: 
   #   - docker
