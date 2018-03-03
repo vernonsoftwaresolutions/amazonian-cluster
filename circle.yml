@@ -3,7 +3,7 @@ machine:
   environment:
     ECS_STACK_NAME: amazonian-containerservice
     STACK_NAME: amazoniancf
-    IMAGE: willejs/go-hello-world
+    IMAGE: larse514/gohelloworldservicecontainer:latest
     VPC_NAME: amazonian-vpc
   # services: 
   #   - docker

@@ -18,6 +18,9 @@ Parameters:
   Priority:
     Type: Number
     Description: ALB rule priority number
+  PortMapping:
+    Type: Number
+    Description: Port used by container 
   HostedZoneName:
     Type: String
     Description:  Hosted zone name
@@ -100,7 +103,7 @@ Resources:
         MinimumHealthyPercent: 0
       LoadBalancers:
       - ContainerName: !Ref ContainerName
-        ContainerPort: 8484
+        ContainerPort: !Ref PortMapping
         TargetGroupArn: !Ref ECSTARGRP
       Role: !Ref 'ECSServiceRole'
       TaskDefinition: !Ref 'taskdefinition'
@@ -116,7 +119,7 @@ Resources:
         Cpu: "50"
         PortMappings:
           -
-            ContainerPort: 8484 
+            ContainerPort: !Ref PortMapping 
         Memory: "500"
         Essential: "true"   
         LogConfiguration:
