@@ -39,6 +39,6 @@ aws cloudformation deploy --template-file containertemplate-output.yml --capabil
 sleep 15
 curl --fail https://hello.vssdevelopment.com/
 
-aws cloudformation deploy --template-file containertemplate-output.yml --capabilities CAPABILITY_IAM --stack-name "${container}2" --parameter-overrides VpcId=${VPC} Priority=1 ecscluster="${ecscluster}" ecslbarn="${ecslbarn}" ecslbdnsname="${ecslbdnsname}"	 ecslbhostedzoneid="${ecslbhostedzoneid}" alblistener="${alblistener}" HostedZoneName=vssdevelopment.com  ServiceName=hello2 ContainerName=hello2 image="${image}"
+aws cloudformation deploy --template-file containertemplate-output.yml --capabilities CAPABILITY_IAM --stack-name "${container}2" --parameter-overrides VpcId=${VPC} Priority=2 ecscluster="${ecscluster}" ecslbarn="${ecslbarn}" ecslbdnsname="${ecslbdnsname}"	 ecslbhostedzoneid="${ecslbhostedzoneid}" alblistener="${alblistener}" HostedZoneName=vssdevelopment.com  ServiceName=hello2 ContainerName=hello2 image="${image}"
 sleep 15
 curl --fail https://hello2.vssdevelopment.com/
