@@ -5,6 +5,7 @@ machine:
     STACK_NAME: amazoniancf
     IMAGE: larse514/gohelloworldservicecontainer:latest
     VPC_NAME: amazonian-vpc
+    PORT_MAPPING: 8080
   # services: 
   #   - docker
 
@@ -19,7 +20,7 @@ test:
     - aws cloudformation validate-template --template-body file://cloudformation/ecs.yml
     - aws cloudformation validate-template --template-body file://cloudformation/containertemplate.yml
     - aws cloudformation validate-template --template-body file://cloudformation/deploymentbucket.yml
-    - sh ./cloudformation/testcloudformation.sh ${ECS_STACK_NAME} ${STACK_NAME} ${IMAGE} ${VPC_NAME}:
+    - sh ./cloudformation/testcloudformation.sh ${ECS_STACK_NAME} ${STACK_NAME} ${IMAGE} ${VPC_NAME} ${PORT_MAPPING}:
        timeout: 1800
 
 deployment: 
