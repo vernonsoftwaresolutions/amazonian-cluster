@@ -2,7 +2,7 @@
 machine: 
   environment:
     ECS_STACK_NAME: amazonian-ecs
-    STACK_NAME: amazonian
+    STACK_NAME: amazoniancf
     IMAGE: willejs/go-hello-world
     VPC_NAME: amazonian-virtual
   # services: 
