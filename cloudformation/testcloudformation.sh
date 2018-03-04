@@ -8,6 +8,10 @@ image=$3
 vpcname=$4
 portmapping=$5
 
+aws cloudformation validate-template --template-body file://cloudformation/vpc.yml
+aws cloudformation validate-template --template-body file://cloudformation/ecs.yml
+aws cloudformation validate-template --template-body file://cloudformation/containertemplate.yml
+aws cloudformation validate-template --template-body file://cloudformation/deploymentbucket.yml
 
 aws cloudformation package --template-file cloudformation/vpc.yml --output-template-file vpc-output.yml --s3-bucket moodle-deployables
 aws cloudformation deploy --template-file vpc-output.yml --capabilities CAPABILITY_IAM --stack-name "${vpcname}" \
