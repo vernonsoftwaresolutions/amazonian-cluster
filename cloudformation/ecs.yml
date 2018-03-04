@@ -273,6 +273,12 @@ Resources:
       Path: /
       Roles: [!Ref 'EC2Role']
 
+  ECSDashboard:
+    Type: AWS::CloudWatch::Dashboard
+    Properties:
+      DashboardName: !Ref AWS::StackName
+      DashboardBody: '{"widgets": [{ "type": "metric", "x": 0, "y": 0, "width": 15, "height": 6, "properties": { "view": "timeSeries", "stacked": false, "title": "ECS Cluster ${AWS::StackName}", "metrics": [ ["AWS/ECS", "MemoryUtilization", "ClusterName", "${ECSCluster}"], [".", "CPUReservation", ".", "."] ], "region": "us-east-1" } }, { "type": "metric", "x": 15, "y": 0, "width": 9, "height": 6, "properties": { "view": "singleValue", "stacked": false, "title": "ECS Cluster ${AWS::StackName}", "metrics": [ ["AWS/ECS", "MemoryUtilization", "ClusterName", "${ECSCluster}", { "period": 60, "stat": "Average" }], [".", "CPUReservation", ".", ".", { "period": 60 }], ["AWS/EC2", "CPUUtilization", "AutoScalingGroupName", "${ECSCluster}", { "period": 60, "stat": "Average" }] ], "region": "us-east-1", "period": 300 } }]}'
+
 Outputs:
   ecscluster:
     Value: !Ref 'ECSCluster'
