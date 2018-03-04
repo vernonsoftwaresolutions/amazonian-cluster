@@ -301,7 +301,7 @@ Outputs:
       Name: !Sub ecslbarn-${AWS::StackName}
   ecslbfullname:
     Description: Load balancer Full Name
-    Value: !GetAtt ${ECSLB.LoadBalancerFullName}
+    Value: !GetAtt ECSLB.LoadBalancerFullName
     Export:  
       Name: !Sub ecslbfullname-${AWS::StackName}
   alblistener:
