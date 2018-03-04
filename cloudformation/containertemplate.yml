@@ -107,6 +107,7 @@ Resources:
         TargetGroupArn: !Ref ECSTARGRP
       Role: !Ref 'ECSServiceRole'
       TaskDefinition: !Ref 'taskdefinition'
+      ServiceName: !Ref ServiceName
 
   taskdefinition:
     Type: AWS::ECS::TaskDefinition
