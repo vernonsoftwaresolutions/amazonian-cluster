@@ -1,0 +1,41 @@
+[{
+    "type": "metric",
+    "x": 0,
+    "y": 12,
+    "width": 15,
+    "height": 6,
+    "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+            ["AWS/ApplicationELB", "RequestCount", "TargetGroup", "targetgroup/${ServiceName}/1503c9926c69cb1f", "LoadBalancer", "app/ECSLB${ServiceName}/196cfe8b66d2b90d", "AvailabilityZone", "us-east-1b"],
+            [".", "TargetResponseTime", ".", ".", ".", ".", ".", "."]
+        ],
+        "region": "us-east-1",
+        "title": "ECS Service ${ServiceName} Response Stats"
+    }
+},
+{
+    "type": "metric",
+    "x": 15,
+    "y": 12,
+    "width": 9,
+    "height": 6,
+    "properties": {
+        "view": "singleValue",
+        "metrics": [
+            ["AWS/ApplicationELB", "TargetResponseTime", "TargetGroup", "targetgroup/amazonian-service6Ydm2mp6/1503c9926c69cb1f", "LoadBalancer", "app/ECSLBamazonian-cluster6pxisweY/196cfe8b66d2b90d", {
+                "period": 60,
+                "stat": "p95",
+                "yAxis": "left"
+            }],
+            [".", "RequestCount", ".", ".", ".", ".", {
+                "period": 60,
+                "stat": "Sum"
+            }]
+        ],
+        "region": "us-east-1",
+        "period": 300,
+        "title": "ECS Service amazonian-service6Ydm2mp6 requests per minute"
+    }
+}]

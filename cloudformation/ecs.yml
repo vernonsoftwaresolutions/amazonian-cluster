@@ -304,3 +304,8 @@ Outputs:
     Value: !Ref ALBListener
     Export:  
       Name: !Sub alblistener-${AWS::StackName}
+  ecsdashboard:
+    Description: AWS ECS Cloudwatch Dashboard
+    Value: !Ref ECSDashboard
+    Export:  
+      Name: !Sub ecsdashboard-${AWS::StackName}
