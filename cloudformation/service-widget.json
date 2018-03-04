@@ -35,5 +35,50 @@
 			"title": "ECS Service ${ServiceName}",
 			"period": 300
 		}
-	}]
+    },
+    {
+        "type": "metric",
+        "x": 0,
+        "y": 6,
+        "width": 15,
+        "height": 6,
+        "properties": {
+            "view": "timeSeries",
+            "stacked": false,
+            "metrics": [
+                ["AWS/ApplicationELB", "TargetResponseTime", "TargetGroup", "${service.TargetGroupFullName}", "LoadBalancer", "${ecslbfullname}", {
+                    "stat": "p95",
+                    "period": 60
+                }],
+                [".", "RequestCountPerTarget", ".", ".", ".", ".", {
+                    "stat": "Sum",
+                    "period": 60
+                }]
+            ],
+            "region": "us-east-1",
+            "period": 300
+        }
+    },
+    {
+        "type": "metric",
+        "x": 15,
+        "y": 6,
+        "width": 9,
+        "height": 6,
+        "properties": {
+            "view": "singleValue",
+            "metrics": [
+                ["AWS/ApplicationELB", "RequestCountPerTarget", "TargetGroup", "${service.TargetGroupFullName}", "LoadBalancer", "${ecslbfullname}", {
+                    "period": 60,
+                    "stat": "Sum"
+                }],
+                [".", "TargetResponseTime", ".", ".", ".", ".", {
+                    "period": 60,
+                    "stat": "p95"
+                }]
+            ],
+            "region": "us-east-1",
+            "period": 300
+        }
+    }]
 }
